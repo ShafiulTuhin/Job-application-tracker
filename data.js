@@ -80,26 +80,25 @@ const renderAll = () => {
     const div = document.createElement("div");
     div.className = "card flex justify-between bg-slate-100 rounded-lg";
 
-    if (job) {
-      div.innerHTML = `
+    div.innerHTML = `
       <div class="p-6">
         <h2 class="job-name font-semibold text-[#002C5C] mb-2">
           ${job.jobName}
         </h2>
 
-        <p class="text-[#64748B]">
+        <p class="job-title text-[#64748B]">
           ${job.jobTitle}
         </p>
 
-        <p class="mt-3 text-[#64748B]">
+        <p class="job-details mt-3 text-[#64748B]">
           ${job.jobDetails}
         </p>
 
-        <h2 class="status bg-slate-200 px-5 py-2 mt-3 w-[200px] text-center rounded-lg">
+        <h2 class="job-status bg-slate-200 px-5 py-2 mt-3 w-[200px] text-center rounded-lg">
           ${job.status}
         </h2>
 
-        <p class="my-4 text-[#323B49]">
+        <p class="job-note my-4 text-[#323B49]">
           ${job.notes}
         </p>
 
@@ -122,8 +121,19 @@ const renderAll = () => {
         </button> 
         </div>
     `;
-    }
 
     allCards.appendChild(div);
   }
+};
+
+// Count section
+const totalJob = document.querySelector(".total-job");
+const interviewJob = document.getElementById("interview-job");
+const rejectedJob = document.getElementById("rejected-job");
+const availableJob = document.getElementById("job-available");
+const calculateCount = () => {
+  totalJob.innerText = jobs.length;
+  availableJob.innerText = jobs.length;
+  interviewJob.innerText = interviewJobList.length;
+  rejectedJob.innerText = rejectedJobList.length;
 };

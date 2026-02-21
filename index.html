@@ -35,16 +35,23 @@
       <div class="grid grid-cols-3 gap-3">
         <p class="bg-slate-100 p-3 rounded-lg">
           Total
-          <span id="total-job" class="block text-[#002C5C] font-bold text-2xl"
+          <span id="" class="total-job block text-[#002C5C] font-bold text-2xl"
             >0</span
           >
         </p>
         <p class="bg-slate-100 p-3 rounded-lg">
           Interview
-          <span class="block font-bold text-2xl text-green-800">0</span>
+          <span
+            id="interview-job"
+            class="block font-bold text-2xl text-green-800"
+            >0</span
+          >
         </p>
         <p class="bg-slate-100 p-3 rounded-lg">
-          Rejected <span class="block font-bold text-2xl text-red-800">0</span>
+          Rejected
+          <span id="rejected-job" class="block font-bold text-2xl text-red-800"
+            >0</span
+          >
         </p>
       </div>
     </header>
@@ -52,26 +59,36 @@
     <main class="py-8">
       <div class="flex justify-between">
         <h2 class="font-semibold text-[#002C5C]">Available Jobs</h2>
-        <p class="text-[#64748B]"><span id="interview-job">0</span> Jobs</p>
+        <p class="text-[#64748B]">
+          <span id="job-available" class="total-job">0</span> Jobs
+        </p>
       </div>
       <!-- Toggle button -->
       <div class="space-x-4 my-6">
         <button
-          class="bg-blue-500 px-6 py-2 rounded-lg font-semibold text-white cursor-pointer"
+          onclick="toggleBtn('toggle-all-btn')"
+          id="toggle-all-btn"
+          class="filter-btn bg-blue-500 px-6 py-2 rounded-lg font-semibold text-white cursor-pointer"
         >
           All
         </button>
         <button
-          class="bg-slate-100 px-6 py-2 rounded-lg font-semibold text-black cursor-pointer"
+          onclick="toggleBtn('toggle-interview-btn')"
+          id="toggle-interview-btn"
+          class="filter-btn bg-slate-100 px-6 py-2 rounded-lg font-semibold text-black cursor-pointer"
         >
           Interview
         </button>
         <button
-          class="bg-slate-100 px-6 py-2 rounded-lg font-semibold text-black cursor-pointer"
+          onclick="toggleBtn('toggle-rejected-btn')"
+          id="toggle-rejected-btn"
+          class="filter-btn bg-slate-100 px-6 py-2 rounded-lg font-semibold text-black cursor-pointer"
         >
           Rejected
         </button>
       </div>
+      <!-- Inset interview and rejected data -->
+      <section id="cardInsert" class="hidden"></section>
       <!-- All cards -->
       <div id="allCards" class="space-y-5">
         <!-- <div class="hidden card flex justify-between bg-slate-100 rounded-lg">
@@ -118,6 +135,7 @@
       </div>
     </main>
 
+    <script src="common.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
   </body>
