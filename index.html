@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment-4(Job Apllication Tracker)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-200 container mx-auto">
+    <header class="py-8 border-b border-gray-300">
+      <h2 class="text-[#002C5C] text-[32px] font-bold mb-5">
+        Job Application Tracker
+      </h2>
+      <div class="grid grid-cols-3 gap-3">
+        <p class="bg-slate-100 p-3 rounded-lg">
+          Total <span class="block text-[#002C5C] font-bold text-2xl">0</span>
+        </p>
+        <p class="bg-slate-100 p-3 rounded-lg">
+          Interview
+          <span class="block font-bold text-2xl text-green-800">0</span>
+        </p>
+        <p class="bg-slate-100 p-3 rounded-lg">
+          Rejected <span class="block font-bold text-2xl text-red-800">0</span>
+        </p>
+      </div>
+    </header>
+
+    <main class="py-8">
+      <div class="flex justify-between">
+        <h2 class="font-semibold text-[#002C5C]">Available Jobs</h2>
+        <p class="text-[#64748B]"><span>0</span> Jobs</p>
+      </div>
+      <!-- Toggle button -->
+      <div class="space-x-4 my-6">
+        <button
+          class="bg-blue-500 px-6 py-2 rounded-lg font-semibold text-white cursor-pointer"
+        >
+          All
+        </button>
+        <button
+          class="bg-slate-100 px-6 py-2 rounded-lg font-semibold text-black cursor-pointer"
+        >
+          Interview
+        </button>
+        <button
+          class="bg-slate-100 px-6 py-2 rounded-lg font-semibold text-black cursor-pointer"
+        >
+          All
+        </button>
+      </div>
+      <!-- All cards -->
+      <div id="allCards" class="space-y-5">
+        <div class="hidden card flex justify-between bg-slate-100 rounded-lg">
+          <div class="p-6">
+            <h2 class="job-postfont-semibold text-[#002C5C] mb-2">
+              Mobile First Corp
+            </h2>
+            <p class="job-title text-[#64748B]">React Native Developer</p>
+            <ul class="offer flex gap-4 mt-5 text-[#64748B]">
+              <li>Remote</li>
+              <li>Full-time</li>
+              <li>$130,000 - $175,000</li>
+            </ul>
+            <h2
+              class="status bg-slate-200 px-5 py-2 lg:w-2/12 w-5/12 mt-3 text-center rounded-lg"
+            >
+              NOT APPLIED
+            </h2>
+            <p class="notes my-4 text-[#323B49]">
+              Create stunning web experiences for high-profile clients. Must
+              have portfolio and experience with modern web design trends.
+            </p>
+            <div class="space-x-3">
+              <button
+                class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold cursor-pointer"
+              >
+                INTERVIEW
+              </button>
+              <button
+                class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold cursor-pointer"
+              >
+                REJECTED
+              </button>
+            </div>
+          </div>
+          <div class="p-6">
+            <button
+              class="bg-slate-200 p-2 rounded-lg text-[#323B49] cursor-pointer"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
