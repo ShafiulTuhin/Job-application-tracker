@@ -97,11 +97,11 @@ const renderAll = () => {
         </p>
 
         <div class="space-x-3">
-          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold">
+          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold cursor-pointer">
             INTERVIEW
           </button>
 
-          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold">
+          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold cursor-pointer">
             REJECTED
           </button>
         </div>
@@ -118,16 +118,4 @@ const renderAll = () => {
 
     allCards.appendChild(div);
   }
-};
-
-// Count section
-const totalJob = document.querySelector(".total-job");
-const interviewJob = document.getElementById("interview-job");
-const rejectedJob = document.getElementById("rejected-job");
-const availableJob = document.getElementById("job-available");
-const calculateCount = () => {
-  totalJob.innerText = jobs.length;
-  availableJob.innerText = jobs.length;
-  interviewJob.innerText = interviewJobList.length;
-  rejectedJob.innerText = rejectedJobList.length;
 };

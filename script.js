@@ -64,17 +64,15 @@ mainContainer.addEventListener("click", (e) => {
     if (!jobExist) {
       interviewJobList.push(cardInfo);
     }
-    // Remove job from reject list
+    // Remove current from reject list
     rejectedJobList = rejectedJobList.filter(
       (job) => job.companyName !== cardInfo.companyName,
     );
     calculateCount();
     updateAvailableCount();
-    // rendering depend on changing status
+    // rendering in reject items after deleting current item
     if (currentStatus == "toggle-rejected-btn") {
       renderRejectJobs();
-      //   document.getElementById("job-available").innerText =
-      //     rejectedJobList.length;
     }
   } else if (e.target.classList.contains("rejected-btn")) {
     const parent = e.target.parentNode.parentNode;
@@ -107,10 +105,9 @@ mainContainer.addEventListener("click", (e) => {
     );
     calculateCount();
     updateAvailableCount();
+    //  rendering in interview items after deleting current item
     if (currentStatus == "toggle-interview-btn") {
       renderInterviewJobs();
-      //   document.getElementById("job-available").innerText =
-      //     interviewJobList.length;
     }
   }
 });
@@ -148,11 +145,11 @@ const renderInterviewJobs = () => {
         </p>
 
         <div class="space-x-3">
-          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold">
+          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold cursor-pointer">
             INTERVIEW
           </button>
 
-          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold">
+          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold cursor-pointer">
             REJECTED
           </button>
         </div>
@@ -200,11 +197,11 @@ const renderRejectJobs = () => {
         </p>
 
         <div class="space-x-3">
-          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold">
+          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold cursor-pointer">
             INTERVIEW
           </button>
 
-          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold">
+          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold cursor-pointer">
             REJECTED
           </button>
         </div>

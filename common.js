@@ -28,7 +28,7 @@ const toggleBtn = (id) => {
     availableJob.innerText = rejectedJobList.length;
   }
 };
-//  available job quantity after click button
+//  available job quantity
 const updateAvailableCount = () => {
   const availableJob = document.getElementById("job-available");
   if (currentStatus === "toggle-all-btn") {
@@ -38,6 +38,18 @@ const updateAvailableCount = () => {
   } else if (currentStatus === "toggle-rejected-btn") {
     availableJob.innerText = rejectedJobList.length;
   }
+};
+
+// Count section
+const totalJob = document.querySelector(".total-job");
+const interviewJob = document.getElementById("interview-job");
+const rejectedJob = document.getElementById("rejected-job");
+const availableJob = document.getElementById("job-available");
+const calculateCount = () => {
+  totalJob.innerText = jobs.length;
+  availableJob.innerText = jobs.length;
+  interviewJob.innerText = interviewJobList.length;
+  rejectedJob.innerText = rejectedJobList.length;
 };
 
 //When items is empty
