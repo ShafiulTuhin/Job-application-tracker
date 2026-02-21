@@ -1,5 +1,4 @@
 // Toggling button
-
 const toggleBtn = (id) => {
   const filterBtn = document.querySelectorAll(".filter-btn");
   filterBtn.forEach((btn) => {
@@ -29,7 +28,7 @@ const toggleBtn = (id) => {
     availableJob.innerText = rejectedJobList.length;
   }
 };
-// count available job after click button
+//  available job quantity after click button
 const updateAvailableCount = () => {
   const availableJob = document.getElementById("job-available");
   if (currentStatus === "toggle-all-btn") {
@@ -38,5 +37,19 @@ const updateAvailableCount = () => {
     availableJob.innerText = interviewJobList.length;
   } else if (currentStatus === "toggle-rejected-btn") {
     availableJob.innerText = rejectedJobList.length;
+  }
+};
+
+//When items is empty
+const emptyItem = (list, parent) => {
+  if (list.length === 0) {
+    parent.innerHTML = `
+         <div class="bg-slate-100 text-center py-30 space-y-5 rounded-lg">
+          <i class="fa-solid fa-file text-[#64748B] text-7xl"></i>
+          <h2 class="text-[#002C5C] font-bold text-2xl">No jobs available</h2>
+          <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
+      `;
+    return;
   }
 };
