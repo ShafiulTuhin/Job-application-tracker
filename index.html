@@ -27,14 +27,17 @@
       }
     </style>
   </head>
-  <body class="bg-slate-200 container mx-auto">
+  <body class="bg-slate-200 container mx-auto lg:px-0 px-4">
     <header class="py-8 border-b border-gray-300">
       <h2 class="text-[#002C5C] text-[32px] font-bold mb-5">
         Job Application Tracker
       </h2>
       <div class="grid grid-cols-3 gap-3">
         <p class="bg-slate-100 p-3 rounded-lg">
-          Total <span class="block text-[#002C5C] font-bold text-2xl">0</span>
+          Total
+          <span id="total-job" class="block text-[#002C5C] font-bold text-2xl"
+            >0</span
+          >
         </p>
         <p class="bg-slate-100 p-3 rounded-lg">
           Interview
@@ -49,7 +52,7 @@
     <main class="py-8">
       <div class="flex justify-between">
         <h2 class="font-semibold text-[#002C5C]">Available Jobs</h2>
-        <p class="text-[#64748B]"><span>0</span> Jobs</p>
+        <p class="text-[#64748B]"><span id="interview-job">0</span> Jobs</p>
       </div>
       <!-- Toggle button -->
       <div class="space-x-4 my-6">
@@ -66,12 +69,12 @@
         <button
           class="bg-slate-100 px-6 py-2 rounded-lg font-semibold text-black cursor-pointer"
         >
-          All
+          Rejected
         </button>
       </div>
       <!-- All cards -->
       <div id="allCards" class="space-y-5">
-        <div class="hidden card flex justify-between bg-slate-100 rounded-lg">
+        <!-- <div class="hidden card flex justify-between bg-slate-100 rounded-lg">
           <div class="p-6">
             <h2 class="job-postfont-semibold text-[#002C5C] mb-2">
               Mobile First Corp
@@ -111,7 +114,7 @@
               <i class="fa-solid fa-trash"></i>
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
 

@@ -1,4 +1,4 @@
-const jobs = [
+let jobs = [
   {
     jobName: "Mobile First Corp",
     jobTitle: "React Native Developer",
@@ -66,15 +66,24 @@ const jobs = [
 ];
 
 const renderAll = () => {
-  addCards.innerHTML = "";
+  allCards.innerHTML = "";
+  if (jobs.length === 0) {
+    allCards.innerHTML = `
+      <h2 class="text-center text-gray-500">
+        No Jobs Available
+      </h2>
+    `;
+    return;
+  }
 
   for (let job of jobs) {
     const div = document.createElement("div");
     div.className = "card flex justify-between bg-slate-100 rounded-lg";
 
-    div.innerHTML = `
+    if (job) {
+      div.innerHTML = `
       <div class="p-6">
-        <h2 class="font-semibold text-[#002C5C] mb-2">
+        <h2 class="job-name font-semibold text-[#002C5C] mb-2">
           ${job.jobName}
         </h2>
 
@@ -103,9 +112,18 @@ const renderAll = () => {
             REJECTED
           </button>
         </div>
+        
       </div>
+      <div class="p-6">
+          <button
+              class=" bg-slate-200 p-2 rounded-lg text-[#323B49] cursor-pointer"
+            >
+              <i class="fa-solid fa-trash job-delete-btn"></i>
+        </button> 
+        </div>
     `;
+    }
 
-    addCards.appendChild(div);
+    allCards.appendChild(div);
   }
 };
