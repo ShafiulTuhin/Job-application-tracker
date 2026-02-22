@@ -1,7 +1,19 @@
 // Get all cards parent
 const allCards = document.getElementById("allCards");
+
 // Rendering all jobs
+const renderAll = () => {
+  allCards.innerHTML = "";
+  //function call when items is emplty
+  emptyItem(jobs, allCards);
+  //rendering all items
+  jobs.forEach((job) => {
+    const card = createJobItem(job);
+    allCards.appendChild(card);
+  });
+};
 renderAll();
+
 // Initial array lists
 let interviewJobList = [];
 let rejectedJobList = [];
@@ -26,6 +38,8 @@ allCards.addEventListener("click", (e) => {
     if (interview || rejected) {
       alert("Cannot be deleted, it is in Interview or Rejected list.");
       return;
+    } else {
+      alert("Deleted successfully");
     }
 
     jobs = jobs.filter((job) => job.companyName !== companyName);
@@ -70,7 +84,7 @@ mainContainer.addEventListener("click", (e) => {
     );
     calculateCount();
     updateAvailableCount();
-    // rendering in reject items after deleting current item
+    // rendering reject list after deleting current item
     if (currentStatus == "toggle-rejected-btn") {
       renderRejectJobs();
     }
@@ -120,52 +134,10 @@ const renderInterviewJobs = () => {
   // For empty list
   emptyItem(interviewJobList, cardInsert);
   //Rendering items
-  for (let interviewJob of interviewJobList) {
-    const div = document.createElement("div");
-    div.className = "card flex justify-between bg-slate-100 rounded-lg";
-    div.innerHTML = `
-      <div class="p-6">
-        <h2 class="job-name font-semibold text-[#002C5C] mb-2">
-          ${interviewJob.companyName}
-        </h2>
-
-        <p class="job-title text-[#64748B]">
-          ${interviewJob.jobTitle}
-        </p>
-
-        <p class="job-details mt-3 text-[#64748B]">
-          ${interviewJob.jobDetails}
-        </p>
-
-        <h2 class="job-status bg-slate-200 px-5 py-2 mt-3 w-[200px] text-center rounded-lg">
-          ${interviewJob.jobStatus}
-        </h2>
-
-        <p class="job-note my-4 text-[#323B49]">
-          ${interviewJob.jobNote}
-        </p>
-
-        <div class="space-x-3">
-          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold cursor-pointer">
-            INTERVIEW
-          </button>
-
-          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold cursor-pointer">
-            REJECTED
-          </button>
-        </div>
-        
-      </div>
-      <div class="p-6">
-          <button
-              class=" bg-slate-200 p-2 rounded-lg text-[#323B49] cursor-pointer"
-            >
-              <i class="fa-solid fa-trash job-delete-btn"></i>
-        </button> 
-        </div>
-    `;
-    cardInsert.appendChild(div);
-  }
+  interviewJobList.forEach((job) => {
+    const card = createJobItem(job);
+    cardInsert.appendChild(card);
+  });
 };
 
 // Rendering job reject list
@@ -174,61 +146,18 @@ const renderRejectJobs = () => {
   // For empty list
   emptyItem(rejectedJobList, cardInsert);
   //Rendering items
-  for (let rejectJob of rejectedJobList) {
-    const div = document.createElement("div");
-    div.className = "card flex justify-between bg-slate-100 rounded-lg";
-    div.innerHTML = `
-      <div class="p-6">
-        <h2 class="job-name font-semibold text-[#002C5C] mb-2">
-          ${rejectJob.companyName}
-        </h2>
-
-        <p class="job-title text-[#64748B]">
-          ${rejectJob.jobTitle}
-        </p>
-
-        <p class="job-details mt-3 text-[#64748B]">
-          ${rejectJob.jobDetails}
-        </p>
-
-        <h2 class="job-status bg-slate-200 px-5 py-2 mt-3 w-[200px] text-center rounded-lg">
-          ${rejectJob.jobStatus}
-        </h2>
-
-        <p class="job-note my-4 text-[#323B49]">
-          ${rejectJob.jobNote}
-        </p>
-
-        <div class="space-x-3">
-          <button class="interview-btn border-2 border-green-300 p-2 text-[#10B981] font-bold cursor-pointer">
-            INTERVIEW
-          </button>
-
-          <button class="rejected-btn border-2 border-red-300 p-2 text-[#EF4444] font-bold cursor-pointer">
-            REJECTED
-          </button>
-        </div>
-        
-      </div>
-      <div class="p-6">
-          <button
-              class=" bg-slate-200 p-2 rounded-lg text-[#323B49] cursor-pointer"
-            >
-              <i class="fa-solid fa-trash job-delete-btn"></i>
-        </button> 
-        </div>
-    `;
-    cardInsert.appendChild(div);
-  }
+  rejectedJobList.forEach((job) => {
+    const card = createJobItem(job);
+    cardInsert.appendChild(card);
+  });
 };
 
-// Delete items from interview jobs
+// Delete items from interview and rejected jobs
 cardInsert.addEventListener("click", (e) => {
   if (e.target.classList.contains("job-delete-btn")) {
     const parent = e.target.closest(".card");
-    console.log(parent);
+
     const companyName = parent.querySelector(".job-name").innerText;
-    console.log(companyName);
 
     //filtering job for interview job
     interviewJobList = interviewJobList.filter(
