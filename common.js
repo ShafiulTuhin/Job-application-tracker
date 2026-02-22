@@ -67,10 +67,13 @@ const createJobItem = (job) => {
       <p class="job-title text-[#64748B]">
         ${job.jobTitle}
       </p>
-
-      <p class="job-details mt-3 text-[#64748B]">
-        ${job.jobDetails}
-      </p>
+     
+        <p class="job-type mt-3 text-[#64748B]">
+          ${job.jobType}  <span class="job-salary"> ${job.jobSalary}</span>
+        </p>
+     
+  
+    
 
       <h2 class="job-status bg-slate-200 px-5 py-2 mt-3 w-[200px] text-center rounded-lg">
         ${job.jobStatus}

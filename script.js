@@ -41,16 +41,17 @@ mainContainer.addEventListener("click", (e) => {
     const parent = e.target.parentNode.parentNode;
     const companyName = parent.querySelector(".job-name").innerText;
     const jobTitle = parent.querySelector(".job-title").innerText;
-    const jobDetails = parent.querySelector(".job-details").innerText;
+    const jobType = parent.querySelector(".job-type").innerText;
+    const jobSalary = parent.querySelector(".job-salary").innerText;
     const jobStatus = parent.querySelector(".job-status").innerText;
     const jobNote = parent.querySelector(".job-note").innerText;
 
     parent.querySelector(".job-status").innerText = "Interview";
     const cardInfo = {
-      parent,
       companyName,
       jobTitle,
-      jobDetails,
+      jobType,
+      jobSalary,
       jobStatus: "Interview",
       jobNote,
     };
@@ -77,16 +78,17 @@ mainContainer.addEventListener("click", (e) => {
     const parent = e.target.parentNode.parentNode;
     const companyName = parent.querySelector(".job-name").innerText;
     const jobTitle = parent.querySelector(".job-title").innerText;
-    const jobDetails = parent.querySelector(".job-details").innerText;
+    const jobType = parent.querySelector(".job-type").innerText;
+    const jobSalary = parent.querySelector(".job-salary").innerText;
     const jobStatus = parent.querySelector(".job-status").innerText;
     const jobNote = parent.querySelector(".job-note").innerText;
 
     parent.querySelector(".job-status").innerText = "Rejected";
     const cardInfo = {
-      parent,
       companyName,
       jobTitle,
-      jobDetails,
+      jobType,
+      jobSalary,
       jobStatus: "Rejected",
       jobNote,
     };
