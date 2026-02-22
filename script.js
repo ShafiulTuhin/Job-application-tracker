@@ -6,6 +6,7 @@ renderAll();
 let interviewJobList = [];
 let rejectedJobList = [];
 let currentStatus = "all";
+
 // call count function
 calculateCount();
 // Delete items from all jobs
@@ -23,9 +24,7 @@ allCards.addEventListener("click", (e) => {
     );
 
     if (interview || rejected) {
-      alert(
-        "Job cannot be deleted because it is in Interview or Rejected list.",
-      );
+      alert("Cannot be deleted, it is in Interview or Rejected list.");
       return;
     }
 
@@ -117,8 +116,9 @@ const cardInsert = document.getElementById("cardInsert");
 
 const renderInterviewJobs = () => {
   cardInsert.innerHTML = "";
+  // For empty list
   emptyItem(interviewJobList, cardInsert);
-
+  //Rendering items
   for (let interviewJob of interviewJobList) {
     const div = document.createElement("div");
     div.className = "card flex justify-between bg-slate-100 rounded-lg";
@@ -170,7 +170,9 @@ const renderInterviewJobs = () => {
 // Rendering job reject list
 const renderRejectJobs = () => {
   cardInsert.innerHTML = "";
+  // For empty list
   emptyItem(rejectedJobList, cardInsert);
+  //Rendering items
   for (let rejectJob of rejectedJobList) {
     const div = document.createElement("div");
     div.className = "card flex justify-between bg-slate-100 rounded-lg";
