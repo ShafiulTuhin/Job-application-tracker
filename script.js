@@ -59,6 +59,7 @@ mainContainer.addEventListener("click", (e) => {
     const jobExist = interviewJobList.find(
       (job) => job.companyName === cardInfo.companyName,
     );
+
     //insert data into interview array
     if (!jobExist) {
       interviewJobList.push(cardInfo);
