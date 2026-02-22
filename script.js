@@ -27,21 +27,6 @@ allCards.addEventListener("click", (e) => {
     const parent = e.target.closest(".card");
     const companyName = parent.querySelector(".job-name").innerText;
 
-    // Check whether jobs in interview or reject list
-    const interview = interviewJobList.find(
-      (job) => job.companyName === companyName,
-    );
-    const rejected = rejectedJobList.find(
-      (job) => job.companyName === companyName,
-    );
-
-    if (interview || rejected) {
-      alert("Cannot be deleted, it is in Interview or Rejected list.");
-      return;
-    } else {
-      alert("Deleted successfully");
-    }
-
     jobs = jobs.filter((job) => job.companyName !== companyName);
 
     calculateCount();
