@@ -43,7 +43,7 @@ mainContainer.addEventListener("click", (e) => {
     const jobTitle = parent.querySelector(".job-title").innerText;
     const jobType = parent.querySelector(".job-type").innerText;
     const jobSalary = parent.querySelector(".job-salary").innerText;
-    const jobStatus = parent.querySelector(".job-status").innerText;
+    const jobStatus = parent.querySelector(".job-status");
     const jobNote = parent.querySelector(".job-note").innerText;
 
     parent.querySelector(".job-status").innerText = "Interview";
@@ -55,6 +55,7 @@ mainContainer.addEventListener("click", (e) => {
       jobStatus: "Interview",
       jobNote,
     };
+
     // Get the job Object
     const jobExist = interviewJobList.find(
       (job) => job.companyName === cardInfo.companyName,
@@ -64,12 +65,18 @@ mainContainer.addEventListener("click", (e) => {
     if (!jobExist) {
       interviewJobList.push(cardInfo);
     }
+
     // Remove current from reject list
     rejectedJobList = rejectedJobList.filter(
       (job) => job.companyName !== cardInfo.companyName,
     );
+    // update state
+    updateState("Interview", companyName);
+    // Update count
     calculateCount();
+    // Update current count
     updateAvailableCount();
+
     // rendering reject list after deleting current item
     if (currentStatus == "toggle-rejected-btn") {
       renderRejectJobs();
@@ -80,7 +87,7 @@ mainContainer.addEventListener("click", (e) => {
     const jobTitle = parent.querySelector(".job-title").innerText;
     const jobType = parent.querySelector(".job-type").innerText;
     const jobSalary = parent.querySelector(".job-salary").innerText;
-    const jobStatus = parent.querySelector(".job-status").innerText;
+    const jobStatus = parent.querySelector(".job-status");
     const jobNote = parent.querySelector(".job-note").innerText;
 
     parent.querySelector(".job-status").innerText = "Rejected";
@@ -99,12 +106,16 @@ mainContainer.addEventListener("click", (e) => {
     if (!jobExist) {
       rejectedJobList.push(cardInfo);
     }
-    document.getElementById("job-available").innerText = rejectedJobList.length;
+
     // Remove job from interview list
     interviewJobList = interviewJobList.filter(
       (job) => job.companyName !== cardInfo.companyName,
     );
+    // update state
+    updateState("Rejected", companyName);
+    // Update count
     calculateCount();
+    // Update current count
     updateAvailableCount();
     //  rendering in interview items after deleting current item
     if (currentStatus == "toggle-interview-btn") {
