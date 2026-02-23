@@ -42,6 +42,19 @@ const calculateCount = () => {
   rejectedJob.innerText = rejectedJobList.length;
 };
 
+//
+const getInnerText = (button) => {
+  if (e.target.classList.contains(button)) {
+    const parent = e.target.parentNode.parentNode;
+    const companyName = parent.querySelector(".job-name").innerText;
+    const jobTitle = parent.querySelector(".job-title").innerText;
+    const jobType = parent.querySelector(".job-type").innerText;
+    const jobSalary = parent.querySelector(".job-salary").innerText;
+    const jobStatus = parent.querySelector(".job-status");
+    const jobNote = parent.querySelector(".job-note").innerText;
+  }
+};
+//
 //  available job quantity
 const updateAvailableCount = () => {
   const availableJob = document.getElementById("job-available");

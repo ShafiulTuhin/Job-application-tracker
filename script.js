@@ -39,6 +39,7 @@ const mainContainer = document.querySelector("main");
 mainContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("interview-btn")) {
     const parent = e.target.parentNode.parentNode;
+
     const companyName = parent.querySelector(".job-name").innerText;
     const jobTitle = parent.querySelector(".job-title").innerText;
     const jobType = parent.querySelector(".job-type").innerText;
@@ -56,12 +57,12 @@ mainContainer.addEventListener("click", (e) => {
       jobNote,
     };
 
-    // Get the job Object
+    // Get the job
     const jobExist = interviewJobList.find(
       (job) => job.companyName === cardInfo.companyName,
     );
 
-    //insert data into interview array
+    //insert job into interview array
     if (!jobExist) {
       interviewJobList.push(cardInfo);
     }
@@ -72,9 +73,9 @@ mainContainer.addEventListener("click", (e) => {
     );
     // update state
     updateState("Interview", companyName);
-    // Update count
+    // calculate count
     calculateCount();
-    // Update current count
+    // Update count
     updateAvailableCount();
 
     // rendering reject list after deleting current item
@@ -99,10 +100,12 @@ mainContainer.addEventListener("click", (e) => {
       jobStatus: "Rejected",
       jobNote,
     };
+
+    //  Get the job
     const jobExist = rejectedJobList.find(
       (job) => job.companyName === cardInfo.companyName,
     );
-
+    // Insert job into rejected array
     if (!jobExist) {
       rejectedJobList.push(cardInfo);
     }
@@ -113,11 +116,11 @@ mainContainer.addEventListener("click", (e) => {
     );
     // update state
     updateState("Rejected", companyName);
-    // Update count
+    // calculate count
     calculateCount();
-    // Update current count
+    // Update count
     updateAvailableCount();
-    //  rendering in interview items after deleting current item
+    //  rendering interview items after deleting current item
     if (currentStatus == "toggle-interview-btn") {
       renderInterviewJobs();
     }
