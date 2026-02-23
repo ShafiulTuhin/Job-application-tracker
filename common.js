@@ -15,7 +15,6 @@ const toggleBtn = (id) => {
   if (id == "toggle-interview-btn") {
     cardInsert.classList.remove("hidden");
     allCards.classList.add("hidden");
-
     renderInterviewJobs();
     availableJob.innerText = interviewJobList.length;
   } else if (id == "toggle-all-btn") {
@@ -42,19 +41,6 @@ const calculateCount = () => {
   rejectedJob.innerText = rejectedJobList.length;
 };
 
-//
-const getInnerText = (button) => {
-  if (e.target.classList.contains(button)) {
-    const parent = e.target.parentNode.parentNode;
-    const companyName = parent.querySelector(".job-name").innerText;
-    const jobTitle = parent.querySelector(".job-title").innerText;
-    const jobType = parent.querySelector(".job-type").innerText;
-    const jobSalary = parent.querySelector(".job-salary").innerText;
-    const jobStatus = parent.querySelector(".job-status");
-    const jobNote = parent.querySelector(".job-note").innerText;
-  }
-};
-//
 //  available job quantity
 const updateAvailableCount = () => {
   const availableJob = document.getElementById("job-available");
@@ -82,10 +68,11 @@ const createJobItem = (job) => {
         ${job.jobTitle}
       </p>
      
-        <p class="job-type mt-3 text-[#64748B]">
-          ${job.jobType}  <span class="job-salary"> ${job.jobSalary}</span>
+        <p class="job-type mt-3 text-[#64748B]  inline-block">
+          ${job.jobType}  
         </p>
-
+        <span class="job-salary text-[#64748B] ml-3"> ${job.jobSalary}</span>
+        
       <h2 class="job-status bg-slate-200 px-5 py-2 mt-3 w-[200px] text-center rounded-lg ${job.jobStatus === "Interview" ? "text-green-500" : job.jobStatus === "NOT APPLIED" ? "text-black" : "text-red-500"}">
         ${job.jobStatus}
       </h2>
