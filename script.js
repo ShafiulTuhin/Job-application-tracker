@@ -169,12 +169,15 @@ cardInsert.addEventListener("click", (e) => {
     rejectedJobList = rejectedJobList.filter(
       (job) => job.companyName !== companyName,
     );
+
     calculateCount();
     updateAvailableCount();
     if (currentStatus === "toggle-interview-btn") {
       renderInterviewJobs();
     } else if (currentStatus === "toggle-rejected-btn") {
       renderRejectJobs();
+    } else {
+      renderAll();
     }
   }
 });

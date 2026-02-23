@@ -1,10 +1,12 @@
 1.  What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
-'getElementById()' and 'querySelector()' are return a single element.Both return null if find nothing. For 'getElementById()' id must be unique, only one item can identify by getElementById. A class can be set in different place of code, but when use 'querySelector()' it will return only the first element.
+'getElementById()' and 'querySelector()' are return a single element.Both return null if find nothing. For 'getElementById()' id must be unique, only one item can identify by getElementById().
+
+Same class can be set in different place of code, but when we want to pick element from that class by use 'querySelector()' it will return only the first element.
 
 'getElementsByClassName()' returns a HTML collection. It is like an array, can loop over collection. do not support forEach(),to work with forEach need to convert ir into an array.It updates automatically when any changes happen in DOM and provide the live result.
 
-'querySelectorAll()' selects multiple item with one css selector. Return a NodeList and can loop over the list. It supports forEach loop and does not changes or updates DOM automatically.
+'querySelectorAll()' selects multiple items with one css selector. Return a NodeList and can loop over the list. It supports forEach loop and does not changes or updates DOM automatically.
 
 2.  How do you create and insert a new element into the DOM?
 

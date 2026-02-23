@@ -131,7 +131,6 @@ const emptyItem = (list, parent) => {
 };
 
 // Update State
-
 const updateState = (status, companyName) => {
   const index = jobs.findIndex((job) => job.companyName === companyName);
   if (index !== -1) {
